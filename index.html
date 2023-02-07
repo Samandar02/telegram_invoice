@@ -9,8 +9,8 @@
 </head>
 <body>
     <button onclick="log()">click to debug</button>
-    <button onclick="alert(telegramData)">alert</button>
-    <p>Hello World</p>
+    <button onclick="alert(JSON.parse(telegramData))">alert</button>
+    <p>Hello WorlD</p>
     <pre id="logbox"></pre>
     <script>
         const telegram = window.Telegram.WebApp
