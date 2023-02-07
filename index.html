@@ -9,15 +9,14 @@
 </head>
 <body>
     <button onclick="log()">click to debug</button>
-    <button onclick="alert(JSON.parse(telegramData))">alert</button>
+    <button onclick="alert(JSON.parse(telegram))">alert</button>
     <p>Hello WorlD</p>
     <pre id="logbox"></pre>
     <script>
         const telegram = window.Telegram.WebApp
-        const telegramData = telegram.initDataUnsafe
         
         function log(){
-            document.querySelector('#logbox').innerHTML = JSON.parse(telegramData)
+            document.querySelector('#logbox').innerHTML = JSON.parse(telegram)
         }
     </script>
 </body>
