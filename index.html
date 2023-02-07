@@ -12,10 +12,10 @@
     <p>hello world</p>
     <pre id="logbox"></pre>
     <script>
-        const telegram = window.Telegram.WebApp
-        const telegramData = telegram.initDataUnsafe
-
+        
         function log(){
+            const telegram = window.Telegram.WebApp
+            const telegramData = telegram.initDataUnsafe
             document.querySelector('#logbox').innerHTML = JSON.parse(telegramData)
         }
     </script>
