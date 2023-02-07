@@ -15,7 +15,7 @@
         const telegramData = telegram.initDataUnsafe
 
         function log(){
-            console.log(telegramData)
+            document.querySelector('body').innerHTML = JSON.parse(telegramData)
         }
     </script>
 </body>
