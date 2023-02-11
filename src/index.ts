@@ -12,7 +12,7 @@ app.get('/',(req,res)=>{
 config()
 
 console.log('-----------------------------------')
-console.log('| Bot has been listening messages |')
+console.log('| Bot has been listening messages1 |')
 console.log('-----------------------------------')
 const bot = new TelegramBot(process.env.BOT_API_TOKEN, { polling: true })
 

@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 (0, dotenv_1.config)();
 console.log('-----------------------------------');
-console.log('| Bot has been listening messages |');
+console.log('| Bot has been listening messages1 |');
 console.log('-----------------------------------');
 const bot = new node_telegram_bot_api_1.default(process.env.BOT_API_TOKEN, { polling: true });
 bot.onText(/\/report/, (msg, match) => {
