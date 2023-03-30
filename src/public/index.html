@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+    <div class="food-list">
+        <h2>Food Items</h2>
+        <ul>
+            <li>
+                <h3>Burger</h3>
+                <span class="count">0</span>
+                <button class="plus-btn">+</button>
+                <button class="minus-btn">-</button>
+            </li>
+            <li>
+                <h3>Pizza</h3>
+                <span class="count">0</span>
+                <button class="plus-btn">+</button>
+                <button class="minus-btn">-</button>
+            </li>
+            <li>
+                <h3>Hotdog</h3>
+                <span class="count">0</span>
+                <button class="plus-btn">+</button>
+                <button class="minus-btn">-</button>
+            </li>
+        </ul>
+        <button class="checkout-btn">Checkout</button>
+    </div>
+
+    <div class="checkout-page">
+        <h2>Checkout</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+            <label for="zip">Zip Code:</label>
+            <input type="text" id="zip" name="zip">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <style>
+        .food-list {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .food-list h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .food-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .food-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .food-list li h3 {
+            margin: 0;
+        }
+
+        .food-list li span.count {
+            font-size: 24px;
+        }
+
+        .food-list li button.plus-btn,
+        .food-list li button.minus-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .food-list li button.plus-btn:hover,
+        .food-list li button.minus-btn:hover {
+            background-color: #3e8e41;
+        }
+
+        .food-list button.checkout-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .food-list button.checkout-btn:hover {
+            background-color: #3e8e41;
+        }
+
+        .checkout-page {
+            max-width: 500px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .checkout-page h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .checkout-page form {
+            display: flex;
+            flex-direction: column;
+        }
+
+    </style>
+    <script>
+        // Get the food list items
+        const items = document.querySelectorAll('.food-list li');
+
+        // Add event listeners to the plus and minus buttons
+        items.forEach(item => {
+            const plusBtn = item.querySelector('.plus-btn');
+            const minusBtn = item.querySelector('.minus-btn');
+            const count = item.querySelector('.count');
+
+            plusBtn.addEventListener('click', () => {
+                count.innerText = parseInt(count.innerText) + 1;
+            });
+
+            minusBtn.addEventListener('click', () => {
+                if (parseInt(count.innerText) > 0) {
+                    count.innerText = parseInt(count.innerText) - 1;
+                }
+            });
+        });
+
+        // Add event listener to the checkout button
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        const foodList = document.querySelector('.food-list');
+        const checkoutPage = document.querySelector('.checkout-page');
+
+        checkoutBtn.addEventListener('click', () => {
+            foodList.style.display = 'none';
+            checkoutPage.style.display = 'block';
+        });
+
+        // Add event listener to the submit button on the checkout form
+        const submitBtn = document.querySelector('.checkout-page form button');
+
+        submitBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            alert('Thank you for your order!');
+        });
+
+        // Add animation on button click
+        const buttons = document.querySelectorAll('.food-list button, .checkout-btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.add('clicked');
+                setTimeout(() => {
+                    button.classList.remove('clicked');
+                }, 300);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
