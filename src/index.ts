@@ -4,7 +4,7 @@ import express  from 'express';
 
 const app = express()
 
-const token = '5851802288:AAF-XIsQFD_h67l6B09kKVY9LqQXZ7TvoeM';
+const token = '{{your-telegram-bot-token-here}}';
 
 const bot = new TelegramBot(token, {polling: true});
 
